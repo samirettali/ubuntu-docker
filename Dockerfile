@@ -16,7 +16,7 @@ RUN apt-get install --no-install-recommends -y \
 RUN useradd -m ${USER} && \
     usermod -aG sudo ${USER} && \
     echo "${USER}:${PASSWD}" | chpasswd && \
-    chsh -s /bin/bash ${USER} && \
+    chsh -s /bin/zsh ${USER} && \
     chown -R ${USER}:${USER} /home/${USER}
 
 USER $USER
