@@ -9,8 +9,11 @@ RUN apt-get update && apt-get upgrade -y
 # Install software 
 RUN apt-get install --no-install-recommends -y \
     ack curl dnsutils entr fd-find file fzf git \
-    hexedit jq less man moreutils openssh-client python3 python3-pip sudo tmux \
-    tree vim watch wget gcc g++ neovim zsh
+    hexedit jq less man moreutils openssh-client python3 python3-pip \
+    software-properties-common sudo tmux tree vim watch wget gcc g++ zsh
+
+RUN add-apt-repository ppa:neovim-ppa/unstable -y && apt-get update -y && \
+        apt-get install neovim -y
 
 # User creation
 RUN useradd -m ${USER} && \
